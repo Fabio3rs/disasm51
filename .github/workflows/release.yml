@@ -31,16 +31,16 @@ jobs:
   publish-pypi:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     environment:
       name: pypi
       url: https://pypi.org/p/disasm51
-      permissions:
-        id-token: write
-      steps:
-      - name: Download
-        uses: actions/download-artifact@v8
-        with:
-          name: dist
-          path: dist/
-      - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
+    steps:
+    - name: Download
+      uses: actions/download-artifact@v8
+      with:
+        name: dist
+        path: dist/
+    - name: Publish to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
