@@ -1,4 +1,5 @@
-[![Build](https://github.com/OlekMazur/disasm51/actions/workflows/python-app.yml/badge.svg)](https://github.com/OlekMazur/disasm51/actions/workflows/python-app.yml)
+[![Build](https://github.com/OlekMazur/disasm51/actions/workflows/build.yml/badge.svg)](https://github.com/OlekMazur/disasm51/actions/workflows/build.yml)
+[![PyPi](https://img.shields.io/pypi/v/disasm51.svg)](https://pypi.org/p/disasm51)
 
 Disassembler for 8051/8052
 ==========================
