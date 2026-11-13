@@ -130,6 +130,9 @@ class CodeAnalyzer:
                     if arg == ArgType.LABEL and val == pc:
                         # jump to self - overrides even known labels (still more readable)
                         valstr = '$'
+                    elif arg == ArgType.LABEL and val >= len(self.rom):
+                        # External program addresses cannot receive a label in this dump.
+                        valstr = utils.int2hex(val)
                     elif arg.value in self.addresses and val in self.addresses[arg.value]:
                         valstr = self.addresses[arg.value][val]  # known address
                     else:
@@ -172,7 +175,7 @@ class CodeAnalyzer:
                     (self.rom[pc] << 8) | self.rom[pc + 1], pc)
                 length = 2
             else:
-                if self.rom[pc] != 0xff:
+                if self.rom[pc] != 0xff or pc == len(self.rom) - 1:
                     result = utils.binary_byte(self.rom[pc], pc)
                 else:
                     result = None

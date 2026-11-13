@@ -124,7 +124,7 @@ def main() -> None:
     print('\ncseg')
     # Initialize code analyzer
     analyzer = codeanalyzer.CodeAnalyzer(
-        _instructions, rom, _addresses, args.force, args.offset, args.no_return_from, indirect)
+        _instructions, rom, _addresses, args.offset, args.force, args.no_return_from, indirect)
     # Extract addresses of code blocks by analyzing jumps, starting from known entry points
     code_blocks: dict[int, int] = {}  # key=address, value=length
     while len(entrypoints) > 0:
