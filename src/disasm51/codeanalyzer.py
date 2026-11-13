@@ -175,7 +175,7 @@ class CodeAnalyzer:
                     (self.rom[pc] << 8) | self.rom[pc + 1], pc)
                 length = 2
             else:
-                if self.rom[pc] != 0xff or pc == len(self.rom) - 1:
+                if self.rom[pc] != 0xff or pc == len(self.rom) - 1 or pc in self.labels:
                     result = utils.binary_byte(self.rom[pc], pc)
                 else:
                     result = None
